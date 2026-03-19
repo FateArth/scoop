@@ -1,0 +1,51 @@
+name: Excavator
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  excavate:
+    name: Excavate
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Scoop
+        shell: pwsh
+        run: |
+          Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+          Invoke-RestMethod https://get.scoop.sh | Invoke-Expression
+
+      - name: Configure Git
+        shell: pwsh
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Run checkver and auto-update
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $scoopBin = "$env:USERPROFILE\scoop\apps\scoop\current\bin"
+          & "$scoopBin\checkver.ps1" * -Dir "${{ github.workspace }}\bucket" -Update
+
+      - name: Commit and push changes
+        shell: pwsh
+        run: |
+          $changed = git diff --name-only bucket/
+          if ($changed) {
+            git add bucket/
+            $apps = ($changed | ForEach-Object {
+              [System.IO.Path]::GetFileNameWithoutExtension($_)
+            }) -join ', '
+            git commit -m "Auto-update: $apps"
+            git push
+          } else {
+            Write-Host 'No updates found.'
+          }
