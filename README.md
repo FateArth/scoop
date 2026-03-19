@@ -26,7 +26,7 @@ scoop search <app-name>
 
 | 应用 | 版本 | 描述 |
 | ---- | ---- | ---- |
-| weixin | 4.1.8 | Free messaging and calling app by Tencent (微信) |
+|      |      |      |
 
 ## 贡献
 
