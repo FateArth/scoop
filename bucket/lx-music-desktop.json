@@ -5,17 +5,39 @@
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://gh.monlor.com/https://github.com/lyswhut/lx-music-desktop/releases/download/v2.12.1/lx-music-desktop-v2.12.1-x64-Setup.exe#/dl.7z",
-            "hash": "md5:19150F578D66B5530AD5D16591E69CE4"
+            "url": "https://gh-proxy.com/https://github.com/lyswhut/lx-music-desktop/releases/download/v2.12.1/lx-music-desktop-v2.12.1-win_x64-green.7z",
+            "hash": "md5:54CEA4FA911732717376843541CC1364"
+        },
+        "32bit": {
+            "url": "https://gh-proxy.com/https://github.com/lyswhut/lx-music-desktop/releases/download/v2.12.1/lx-music-desktop-v2.12.1-win7_x86-green.7z",
+            "hash": "md5:F4E84C978A0FA1428FA3B942C85829C8"
+        },
+        "arm64": {
+            "url": "https://gh-proxy.com/https://github.com/lyswhut/lx-music-desktop/releases/download/v2.12.1/lx-music-desktop-v2.12.1-win_arm64-green.7z",
+            "hash": "md5:09F88156696BEF2BAD385790AC1FD167"
         }
     },
     "autoupdate": {
         "architecture": {
-            "64bit": {
-                "url": "https://gh.monlor.com/https://github.com/lyswhut/lx-music-desktop/releases/download/v$version/lx-music-desktop-v$version-x64-Setup.exe#/dl.7z",
+            "32bit": {
+                "url": "https://gh-proxy.com/https://github.com/lyswhut/lx-music-desktop/releases/download/v$version/lx-music-desktop-v$version-win7_x86-green.7z",
                 "hash": {
-                    "url": "https://gh.monlor.com/https://github.com/lyswhut/lx-music-desktop/releases/tag/v$version",
-                    "regex": "$md5\\s+lx-music-desktop\\s+v$version\\s+x64-Setup"
+                    "url": "https://gh-proxy.com/https://github.com/lyswhut/lx-music-desktop/releases/tag/v$version",
+                    "regex": "$md5\\s+lx-music-desktop\\s+v$version\\s+win_x86\\s+green"
+                }
+            },
+            "64bit": {
+                "url": "https://gh-proxy.com/https://github.com/lyswhut/lx-music-desktop/releases/download/v$version/lx-music-desktop-v$version-win_x64-green.7z",
+                "hash": {
+                    "url": "https://gh-proxy.com/https://github.com/lyswhut/lx-music-desktop/releases/tag/v$version",
+                    "regex": "$md5\\s+lx-music-desktop\\s+v$version\\s+win_x64\\s+green"
+                }
+            },
+            "arm64": {
+                "url": "https://github.com/lyswhut/lx-music-desktop/releases/download/v$version/lx-music-desktop-v$version-win_arm64-green.7z",
+                "hash": {
+                    "url": "https://gh-proxy.com/https://github.com/lyswhut/lx-music-desktop/releases/tag/v$version",
+                    "regex": "$md5\\s+lx-music-desktop\\s+v$version\\s+win_arm64\\s+green"
                 }
             }
         }
