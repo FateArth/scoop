@@ -1,0 +1,32 @@
+{
+    "version": "2.12.1",
+    "description": "一个基于 Electron 的音乐软件",
+    "homepage": "https://lxmusic.toside.cn/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://gh.monlor.com/https://github.com/lyswhut/lx-music-desktop/releases/download/v2.12.1/lx-music-desktop-v2.12.1-x64-Setup.exe#/dl.7z",
+            "hash": "md5:54cea4fa911732717376843541cc1364"
+        }
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://gh.monlor.com/https://github.com/lyswhut/lx-music-desktop/releases/download/v$version/lx-music-desktop-v$version-x64-Setup.exe#/dl.7z",
+                "hash": {
+                    "url": "https://gh.monlor.com/https://github.com/lyswhut/lx-music-desktop/releases/tag/v$version",
+                    "regex": "$md5\\s+lx-music-desktop\\s+v$version\\s+x64-Setup"
+                }
+            }
+        }
+    },
+    "shortcuts": [
+        [
+            "lx-music-desktop.exe",
+            "Lx Music Desktop"
+        ]
+    ],
+    "persist": [
+        "portable"
+    ]
+}
