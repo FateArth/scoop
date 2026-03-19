@@ -1,0 +1,24 @@
+{
+    "version": "4.1.8",
+    "description": "Free messaging and calling app by Tencent (微信)",
+    "homepage": "https://weixin.qq.com/",
+    "license": "Proprietary",
+    "url": "https://dldir1v6.qq.com/weixin/Universal/Windows/WeChatWin_4.1.8.exe",
+    "hash": "sha256:55bbdca56f2e931e6958f99446cc893c5bbf4a60370f7133afe29e135d52d14b",
+    "installer": {
+        "file": "$fname",
+        "args": "/S"
+    },
+    "shortcuts": [
+        [
+            "$env:ProgramFiles\\Tencent\\WeChat\\WeChat.exe",
+            "WeChat"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/cscnk52/wechat-windows-versions"
+    },
+    "autoupdate": {
+        "url": "https://dldir1v6.qq.com/weixin/Universal/Windows/WeChatWin_$version.exe"
+    }
+}
