@@ -5,6 +5,10 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+concurrency:
+  group: excavator
+  cancel-in-progress: true
+
 jobs:
   excavate:
     name: Excavate
@@ -20,6 +24,11 @@ jobs:
         run: |
           Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
           Invoke-RestMethod https://get.scoop.sh | Invoke-Expression
+          Add-Content $env:GITHUB_PATH "$env:USERPROFILE\scoop\shims"
+
+      - name: Update Scoop
+        shell: pwsh
+        run: scoop update
 
       - name: Configure Git
         shell: pwsh
@@ -46,6 +55,9 @@ jobs:
             }) -join ', '
             git commit -m "Auto-update: $apps"
             git push
+            "### Updated apps`n`n$($apps -split ', ' | ForEach-Object { "- $_" } | Out-String)" |
+              Out-File $env:GITHUB_STEP_SUMMARY -Append
           } else {
             Write-Host 'No updates found.'
+            "### Update Status`n`nNo updates found." | Out-File $env:GITHUB_STEP_SUMMARY -Append
           }
