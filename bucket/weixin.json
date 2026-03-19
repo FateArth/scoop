@@ -41,7 +41,8 @@
     ],
     "persist": "xwechat_files",
     "checkver": {
-        "github": "https://github.com/cscnk52/wechat-windows-versions"
+        "github": "https://github.com/cscnk52/wechat-windows-versions",
+        "regex": "WeChatWin_(\\d+\\.\\d+\\.\\d+)\\.exe"
     },
     "autoupdate": {
         "architecture": {
