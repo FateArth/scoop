@@ -17,6 +17,9 @@
             "hash": "md5:09F88156696BEF2BAD385790AC1FD167"
         }
     },
+    "checkver": {
+        "github": "https://github.com/lyswhut/lx-music-desktop"
+    },
     "autoupdate": {
         "architecture": {
             "32bit": {
