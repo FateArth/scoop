@@ -1,0 +1,15 @@
+{
+    "version": "1.0.0",
+    "description": "An example Scoop manifest — replace this with a real app.",
+    "homepage": "https://example.com",
+    "license": "MIT",
+    "url": "https://example.com/releases/example-1.0.0.zip",
+    "hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "bin": "example.exe",
+    "checkver": {
+        "github": "https://github.com/example/example"
+    },
+    "autoupdate": {
+        "url": "https://example.com/releases/example-$version.zip"
+    }
+}
